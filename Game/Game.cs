@@ -33,6 +33,11 @@ namespace TextAdventure.Game
             placegrid = new Dictionary<Vector3, Room>();
             user.position = new Vector3(0, 0, 0);
         }
+
+        public Room readRoom(Vector3 position)
+        {
+            return placegrid[position];
+        }
     }
         public class Room
     {
@@ -112,4 +117,5 @@ namespace TextAdventure.Game
 
 
     }
+    
 }
