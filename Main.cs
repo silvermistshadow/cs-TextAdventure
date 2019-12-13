@@ -4,5 +4,11 @@ using TextAdventure.Game;
 
 namespace TextAdventure
 {
-    
+    class Program
+    {
+        public static void Main()
+        {
+            
+        }
+    }
 }
