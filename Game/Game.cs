@@ -11,16 +11,12 @@ namespace TextAdventure.Game
 
         public Dictionary<Vector3, Room> placegrid;
         public static Dictionary<String, Vector3> cardinals = new Dictionary<string, Vector3>(){
-            { "north", new Vector3 (0, 1, 0) },
-            { "south", new Vector3 (0, -1, 0) },
-            { "west", new Vector3 (-1, 0, 0) },
-            { "east", new Vector3 (1, 0, 0) },
-            { "up", new Vector3 (0, 0, 1) },
-            { "down", new Vector3 (0, 0, -1) },
-            { "northwest", new Vector3 (-1, 1, 0) },
-            { "northeast", new Vector3 (1, 1, 0) },
-            { "southwest", new Vector3 (-1, -1, 0) },
-            { "southeast", new Vector3 (1, -1, 0) }
+            { "proximal", new Vector3 (0, 1, 0) },
+            { "distal", new Vector3 (0, -1, 0) },
+            { "ventral", new Vector3 (-1, 0, 0) },
+            { "dorsal", new Vector3 (1, 0, 0) },
+            { "cranial", new Vector3 (0, 0, 1) },
+            { "caudal", new Vector3 (0, 0, -1) },
         };
         public Dictionary<String, Vector3> directions = cardinals;
         public string Difficulty { get; set; }
