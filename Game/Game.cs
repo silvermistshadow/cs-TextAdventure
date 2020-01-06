@@ -8,6 +8,14 @@ namespace TextAdventure.Game
 
     public class Game
     {
+        public void TakeItem(Item taken)
+        {
+            if (taken.pos == user.position && taken.canBeTaken)
+            {
+                taken.inInventory = true;
+                user.inventory.Add(taken);
+            }
+        }
 
 
         public Dictionary<Vector3, Room> placegrid;
@@ -84,7 +92,43 @@ namespace TextAdventure.Game
                 Console.WriteLine("What?");
             }
         }
-        
+        public void Look()
+        {
+            Console.WriteLine(readRoom(user.position).description);
+            foreach (Item thing in readRoom(user.position).items)
+            {
+                Console.WriteLine($"I see a {thing.name} here.");
+            }
+            foreach (string exit in readRoom(user.position).exits.Keys)
+            {
+                Console.WriteLine($"I see an exit to the {exit}. It leads to the {readRoom(user.position + directions[exit]).Name}.");
+            }
+        }
+        public void Look(Item lookedat)
+        {
+            switch (lookedat)
+            {
+                case null:
+                    Console.WriteLine("What should I look at?");
+                    break;
+                default:
+                    if (lookedat.pos == user.position || lookedat.inInventory == true)
+                    {
+                        Console.WriteLine(lookedat.name);
+                        Console.WriteLine(lookedat.description);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"I see no {lookedat} here.");
+                    }
+
+                    break;
+            }
+        }
+        void Move(string moveExit)
+        {
+            user.position = user.position + directions[moveExit];
+        }
 
     }
         public class Room
