@@ -192,7 +192,7 @@ namespace TextAdventure.Game
             if (actions.Count == 0)
             {
 
-                Console.WriteLine("What are you using?");
+                Console.WriteLine("What should I use?");
             }
 
         }
