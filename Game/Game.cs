@@ -9,6 +9,7 @@ namespace TextAdventure.Game
     public class Game
     {
 
+
         public Dictionary<Vector3, Room> placegrid;
         public static Dictionary<String, Vector3> cardinals = new Dictionary<string, Vector3>(){
             { "proximal", new Vector3 (0, 1, 0) },
@@ -34,6 +35,57 @@ namespace TextAdventure.Game
         {
             return placegrid[position];
         }
+        public Item itemSearch(string term)
+        {
+            Item founditem = new Item();
+            foreach(Item found in readRoom(user.position).items)
+            {
+                if (term == found.name || term == found.shorthand)
+                {
+                    founditem = found;
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+            foreach(Item found in user.inventory)
+            {
+                if (term == found.name || term == found.shorthand)
+                {
+                    founditem = found;
+                }
+            }
+            return founditem;
+        }
+        public void addRoom(Room tobeadded, Vector3 Position)
+        {
+            placegrid.Add(Position, tobeadded);
+        }
+        public void dirGo(string direction, Room curroom)
+        {
+            if (directions.ContainsKey(direction))
+            {
+                if (curroom.exits.ContainsKey(direction))
+                {
+                    if (curroom.exits[direction] == false)
+                    {
+                        user.position += directions[direction];
+                    }
+                    else
+                    {
+                        Console.WriteLine(curroom.blockreasons[direction]);
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("What?");
+            }
+        }
+        
+
     }
         public class Room
     {
