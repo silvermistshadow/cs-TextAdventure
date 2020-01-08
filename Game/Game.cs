@@ -34,7 +34,6 @@ namespace TextAdventure.Game
         public Game()
         {
             user = new Player();
-            Difficulty = "Normal";
             placegrid = new Dictionary<Vector3, Room>();
             user.position = new Vector3(0, 0, 0);
         }
