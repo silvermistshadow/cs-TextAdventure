@@ -27,9 +27,7 @@ namespace TextAdventure.Game
             { "cranial", new Vector3 (0, 0, 1) },
             { "caudal", new Vector3 (0, 0, -1) },
         };
-        public Dictionary<String, Vector3> directions = cardinals;
-        public string Difficulty { get; set; }
-        
+        public Dictionary<String, Vector3> directions = cardinals;   
         public Player user;
         public Game()
         {

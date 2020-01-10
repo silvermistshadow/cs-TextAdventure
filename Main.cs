@@ -17,8 +17,8 @@ namespace TextAdventure
 
             if (input == "Start" || input == "start")
             {
-                Game.Game newGame = new Game.Game();
-                
+                Init.start();
+
             }
             
         }
