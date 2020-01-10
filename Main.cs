@@ -13,6 +13,13 @@ namespace TextAdventure
 
             Console.WriteLine($@"{opening} 
             type 'Start' to begin");
+            string input = Console.ReadLine();
+
+            if (input == "Start" || input == "start")
+            {
+                Game.Game newGame = new Game.Game();
+                
+            }
             
         }
     }
