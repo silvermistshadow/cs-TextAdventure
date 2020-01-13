@@ -17,6 +17,7 @@ namespace TextAdventure
 
             if (input == "Start" || input == "start")
             {
+                Console.WriteLine("Starting up. This could take a bit.");
                 Init.start();
 
             }
