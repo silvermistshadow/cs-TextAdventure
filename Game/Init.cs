@@ -11,8 +11,7 @@ namespace TextAdventure
         {
             var newGame = new Game.Game();
             Room stomach = new Room("Stomach", "This looks like the stomach. It's my entry point to the rest of the body.");
-            Vector3 stomachPos =  new Vector3(0);
-            newGame.addRoom(stomach, stomachPos);
+            newGame.addRoom(stomach, new Vector3(0));
         }
     }
 }
