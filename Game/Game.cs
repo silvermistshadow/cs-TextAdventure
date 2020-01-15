@@ -22,8 +22,8 @@ namespace TextAdventure.Game
         public static Dictionary<String, Vector3> cardinals = new Dictionary<string, Vector3>(){
             { "right", new Vector3 (0, 1, 0) },
             { "left", new Vector3 (0, -1, 0) },
-            { "ventral", new Vector3 (-1, 0, 0) },
-            { "dorsal", new Vector3 (1, 0, 0) },
+            { "ventral", new Vector3 (1, 0, 0) },
+            { "dorsal", new Vector3 (-1, 0, 0) },
             { "cranial", new Vector3 (0, 0, 1) },
             { "caudal", new Vector3 (0, 0, -1) },
         };
