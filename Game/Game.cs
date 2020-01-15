@@ -20,8 +20,8 @@ namespace TextAdventure.Game
 
         public Dictionary<Vector3, Room> placegrid;
         public static Dictionary<String, Vector3> cardinals = new Dictionary<string, Vector3>(){
-            { "proximal", new Vector3 (0, 1, 0) },
-            { "distal", new Vector3 (0, -1, 0) },
+            { "right", new Vector3 (0, 1, 0) },
+            { "left", new Vector3 (0, -1, 0) },
             { "ventral", new Vector3 (-1, 0, 0) },
             { "dorsal", new Vector3 (1, 0, 0) },
             { "cranial", new Vector3 (0, 0, 1) },
