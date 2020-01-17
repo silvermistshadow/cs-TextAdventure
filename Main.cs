@@ -19,7 +19,15 @@ namespace TextAdventure
             {
                 Console.WriteLine("Starting up. This could take a bit.");
                 Init.start();
-
+                Console.WriteLine(@"Startup finished. This game is still in development; please read the readme for game commands.");
+                while(true)
+                {
+                    string gameInput = Console.ReadLine();
+                    if (Init.newGame.directions.ContainsKey(gameInput.ToLower()))
+                    {
+                        
+                    }
+                }
             }
             
         }

@@ -1,12 +1,21 @@
-# _{Application Name}_
+# _Text adventure_
 
-#### _{Brief description of application}, {Date of current version}_
+#### _A basic text adventure, 1-17-2020_
 
-#### By _**{List of contributors}**_
+#### By _**BM**_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_The short description pretty much got it._
+
+#### Command Reference
+ To go somewhere, type one of the directions. Directions are as follows; **right**, **left**, **ventral**, **dorsal**, **cranial** and **caudal**.
+
+When items are implimented, you can use **Take** and the name of the item to take it.
+
+**Look** displays the room description and exits and items in it. Alternatively, if you specify an item, it will display that instead. Again, items haven't been implimented yet.
+
+
 
 ## Setup/Installation Requirements
 

@@ -6,10 +6,10 @@ using System.Numerics;
 namespace TextAdventure
 {
     public class Init
-    {
+    {   public static Game.Game newGame = new Game.Game();
         public static void start()
         {
-            var newGame = new Game.Game();
+            
             Room stomach = new Room("Stomach", "This looks like the stomach. It's my entry point to the rest of the body.");
             newGame.addRoom(stomach, new Vector3(0));
             Room liver = new Room("Liver", "This is the liver.");
@@ -32,11 +32,11 @@ namespace TextAdventure
             newGame.addRoom(pancreas, new Vector3(-1,0,0));
             void setGoalRoom(Dictionary<Vector3, Room> rooms)
             {
-                rooms = newGame.placegrid;
                 Room[] roomArray = new Room[rooms.Count];
                 rooms.Values.CopyTo(roomArray, 0);
                 roomArray[new Random().Next(1, roomArray.Length)].isGoalRoom = true;
             }
+            setGoalRoom(rooms: newGame.placegrid);
         }
 
 
