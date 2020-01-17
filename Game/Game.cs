@@ -135,6 +135,7 @@ namespace TextAdventure.Game
         public Dictionary<string, bool> exits;
         public Dictionary<string, string> blockreasons;
         public List<Item> items;
+        public bool isGoalRoom;
         public Room(string name, string desc)
         {
             description = desc;
@@ -144,6 +145,7 @@ namespace TextAdventure.Game
             { };
             blockreasons = new Dictionary<string, string>
             { };
+            isGoalRoom = false;
         }
         public Room()
         {
