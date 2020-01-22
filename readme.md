@@ -1,12 +1,12 @@
 # _Text adventure_
 
-#### _A basic text adventure, 1-17-2020_
+#### _A basic text adventure, 1-22-2020_
 
 #### By _**BM**_
 
 ## Description
 
-_The short description pretty much got it._
+_The short description pretty much got it. As for the current version, the game is not quite playable._
 
 #### Command Reference
  To go somewhere, type one of the directions. Directions are as follows; **right**, **left**, **ventral**, **dorsal**, **cranial** and **caudal**.

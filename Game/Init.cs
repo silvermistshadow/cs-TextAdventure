@@ -7,7 +7,7 @@ namespace TextAdventure
 {
     public class Init
     {   public static Game.Game newGame = new Game.Game();
-        public static void start()
+        public static Dictionary<string, Vector3> start()
         {
             
             Room stomach = new Room("Stomach", "This looks like the stomach. It's my entry point to the rest of the body.");
@@ -30,6 +30,18 @@ namespace TextAdventure
             Room pancreas = new Room("Pancreas", "This is the pancreas.");
             newGame.addRoom(spleen, new Vector3(0,-1,0));
             newGame.addRoom(pancreas, new Vector3(-1,0,0));
+            Dictionary<string, Vector3> stringRooms = new Dictionary<string, Vector3>{
+                {"Stomach", new Vector3(0)},
+                {"Liver", new Vector3(0,1,0)},
+                {"Small Intestine", new Vector3(0,0,-1)},
+                {"Aorta", new Vector3(-2,0,0)},
+                {"Inferior Vena Cava", new Vector3(-1,1,0)},
+                {"Heart", new Vector3(0,0,1)},
+                {"Left Lung", new Vector3(0,-1,1)},
+                {"Right Lung", new Vector3(0,1,1)},
+                {"Spleen", new Vector3(0,-1,0)},
+                {"Pancreas", new Vector3(-1,0,0)}
+            };
             void setGoalRoom(Dictionary<Vector3, Room> rooms)
             {
                 Room[] roomArray = new Room[rooms.Count];
@@ -37,6 +49,7 @@ namespace TextAdventure
                 roomArray[new Random().Next(1, roomArray.Length)].isGoalRoom = true;
             }
             setGoalRoom(rooms: newGame.placegrid);
+            return stringRooms;
         }
 
 
