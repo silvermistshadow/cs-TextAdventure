@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Numerics;
-using TextAdventure.Game;
 
 namespace TextAdventure
 {
@@ -19,7 +18,7 @@ namespace TextAdventure
             if (input == "Start" || input == "start")
             {
                 Console.WriteLine("Starting up. This could take a bit.");
-               var stringRooms = Init.start();
+                var stringRooms = Init.start();
                 Vector3 startRoom = stringRooms["Stomach"];
                 Console.WriteLine(@"Startup finished. This game is still in development; please read the readme for game commands.");
                 while(true)

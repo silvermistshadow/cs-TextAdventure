@@ -2,12 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 
-namespace TextAdventure.Game
+namespace TextAdventure
 {
     public delegate void gameAction();
 
     public class Game
     {
+        public Dictionary<String, Vector3> directions = cardinals;   
+        public Player user;
+        public Dictionary<Vector3, Room> placegrid;
+        public Game()
+        {
+            user = new Player();
+            placegrid = new Dictionary<Vector3, Room>();
+            user.position = new Vector3(0, 0, 0);
+        }
         public void TakeItem(Item taken)
         {
             if (taken.pos == user.position && taken.canBeTaken)
@@ -18,7 +27,6 @@ namespace TextAdventure.Game
         }
 
 
-        public Dictionary<Vector3, Room> placegrid;
         public static Dictionary<String, Vector3> cardinals = new Dictionary<string, Vector3>(){
             { "right", new Vector3 (0, 1, 0) },
             { "left", new Vector3 (0, -1, 0) },
@@ -27,14 +35,7 @@ namespace TextAdventure.Game
             { "cranial", new Vector3 (0, 0, 1) },
             { "caudal", new Vector3 (0, 0, -1) },
         };
-        public Dictionary<String, Vector3> directions = cardinals;   
-        public Player user;
-        public Game()
-        {
-            user = new Player();
-            placegrid = new Dictionary<Vector3, Room>();
-            user.position = new Vector3(0, 0, 0);
-        }
+
 
         public Room readRoom(Vector3 position)
         {
@@ -141,10 +142,8 @@ namespace TextAdventure.Game
             description = desc;
             Name = name;
             items = new List<Item>();
-            exits = new Dictionary<string, bool>
-            { };
-            blockreasons = new Dictionary<string, string>
-            { };
+            exits = new Dictionary<string, bool>();
+            blockreasons = new Dictionary<string, string>();
             isGoalRoom = false;
         }
         public Room()
@@ -200,6 +199,7 @@ namespace TextAdventure.Game
     {
         public Vector3 position;
         public List<Item> inventory;
+        public Room curroom;
         public Player()
         {
             position = new Vector3(0, 0, 0);

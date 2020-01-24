@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using TextAdventure.Game;
+
 using System.Numerics;
 
 namespace TextAdventure
 {
     public class Init
-    {   public static Game.Game newGame = new Game.Game();
+    {   public static Game newGame = new Game();
         public static Dictionary<string, Vector3> start()
         {
             
@@ -42,16 +42,27 @@ namespace TextAdventure
                 {"Spleen", new Vector3(0,-1,0)},
                 {"Pancreas", new Vector3(-1,0,0)}
             };
-            void setGoalRoom(Dictionary<Vector3, Room> rooms)
-            {
-                Room[] roomArray = new Room[rooms.Count];
-                rooms.Values.CopyTo(roomArray, 0);
-                roomArray[new Random().Next(1, roomArray.Length)].isGoalRoom = true;
-            }
             setGoalRoom(rooms: newGame.placegrid);
+            newGame.user.curroom = stomach;
             return stringRooms;
         }
 
+        public static void setGoalRoom(Dictionary<Vector3, Room> rooms)
+        {
+            Room[] roomArray = new Room[rooms.Count];
+            rooms.Values.CopyTo(roomArray, 0);
+            roomArray[new Random().Next(1, roomArray.Length)].isGoalRoom = true;
+        }
+
+        public static void setRoomExits(Room toSet, Dictionary<string, bool> exitsToAdd)
+        {
+            toSet.exits = exitsToAdd;
+        }
+
+        public static void setBlockReasons(Room toSet, Dictionary<string, string> reasonsToAdd)
+        {
+            toSet.blockreasons = reasonsToAdd;
+        }
 
     }
 }
