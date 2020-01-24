@@ -30,7 +30,8 @@ namespace TextAdventure
             Room pancreas = new Room("Pancreas", "This is the pancreas.");
             newGame.addRoom(spleen, new Vector3(0,-1,0));
             newGame.addRoom(pancreas, new Vector3(-1,0,0));
-            Dictionary<string, Vector3> stringRooms = new Dictionary<string, Vector3>{
+            Dictionary<string, Vector3> stringRooms = new Dictionary<string, Vector3>
+            {
                 {"Stomach", new Vector3(0)},
                 {"Liver", new Vector3(0,1,0)},
                 {"Small Intestine", new Vector3(0,0,-1)},
@@ -62,6 +63,19 @@ namespace TextAdventure
         public static void setBlockReasons(Room toSet, Dictionary<string, string> reasonsToAdd)
         {
             toSet.blockreasons = reasonsToAdd;
+        }
+
+        public static void exitAdder()
+        {
+            Dictionary<string, bool> stomachExits = new Dictionary<string, bool> 
+            {
+                {"left", false},
+                {"right", false},
+                {"ventral", true},
+                {"dorsal", true},
+                {"cranial", true},
+                {"caudal", true}
+            };
         }
 
     }
