@@ -10,11 +10,11 @@ namespace TextAdventure
     {
         public Dictionary<String, Vector3> directions = cardinals;   
         public Player user;
-        public Dictionary<Vector3, Room> placegrid;
+        public Dictionary<string, Room> RoomList;
         public Game()
         {
             user = new Player();
-            placegrid = new Dictionary<Vector3, Room>();
+            RoomList = new Dictionary<string, Room>();
             user.position = new Vector3(0, 0, 0);
         }
         public void TakeItem(Item taken)
@@ -37,14 +37,14 @@ namespace TextAdventure
         };
 
 
-        public Room readRoom(Vector3 position)
+        public Room readRoom(string roomName)
         {
-            return placegrid[position];
+            return RoomList[roomName];
         }
         public Item itemSearch(string term)
         {
             Item founditem = new Item();
-            foreach(Item found in readRoom(user.position).items)
+            foreach(Item found in readRoom(user.curroom).items)
             {
                 if (term == found.name || term == found.shorthand)
                 {
@@ -65,9 +65,9 @@ namespace TextAdventure
             }
             return founditem;
         }
-        public void addRoom(Room tobeadded, Vector3 Position)
+        public void addRoom(string roomName, Room room)
         {
-            placegrid.Add(Position, tobeadded);
+            RoomList.Add(roomName, room);
         }
         public void dirGo(string direction, Room curroom)
         {
@@ -78,6 +78,14 @@ namespace TextAdventure
                     if (curroom.exits[direction] == false)
                     {
                         user.position += directions[direction];
+                        foreach(KeyValuePair<string, Room> roomName in RoomList)
+                        {
+                            if(roomName.Value.Position == user.position)
+                            {
+                                user.curroom = roomName.Key;
+                                break;
+                            }
+                        }
                     }
                     else
                     {
@@ -92,14 +100,14 @@ namespace TextAdventure
         }
         public void Look()
         {
-            Console.WriteLine(readRoom(user.position).description);
-            foreach (Item thing in readRoom(user.position).items)
+            Console.WriteLine(readRoom(user.curroom).description);
+            foreach (Item thing in readRoom(user.curroom).items)
             {
                 Console.WriteLine($"I see a {thing.name} here.");
             }
-            foreach (string exit in readRoom(user.position).exits.Keys)
+            foreach (string exit in readRoom(user.curroom).exits.Keys)
             {
-                Console.WriteLine($"I see an exit to the {exit}. It leads to the {readRoom(user.position + directions[exit]).Name}.");
+                Console.WriteLine($"I see an exit to the {exit}. It leads to the {readRoom(user.curroom + directions[exit]).Name}.");
             }
         }
         public void Look(Item lookedat)
@@ -137,7 +145,8 @@ namespace TextAdventure
         public Dictionary<string, string> blockreasons;
         public List<Item> items;
         public bool isGoalRoom;
-        public Room(string name, string desc)
+        public Vector3 Position;
+        public Room(string name, string desc, Vector3 position)
         {
             description = desc;
             Name = name;
@@ -145,6 +154,7 @@ namespace TextAdventure
             exits = new Dictionary<string, bool>();
             blockreasons = new Dictionary<string, string>();
             isGoalRoom = false;
+            Position = position;
         }
         public Room()
         {
@@ -199,7 +209,7 @@ namespace TextAdventure
     {
         public Vector3 position;
         public List<Item> inventory;
-        public Room curroom;
+        public string curroom = "stomach";
         public Player()
         {
             position = new Vector3(0, 0, 0);
