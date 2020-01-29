@@ -8,7 +8,7 @@ namespace TextAdventure
 
     public class Game
     {
-        public Dictionary<String, Vector3> directions = cardinals;   
+        public Dictionary<string, Vector3> directions = cardinals;   
         public Player user;
         public Dictionary<string, Room> RoomList;
         public Game()
@@ -27,7 +27,7 @@ namespace TextAdventure
         }
 
 
-        public static Dictionary<String, Vector3> cardinals = new Dictionary<string, Vector3>(){
+        public static Dictionary<string, Vector3> cardinals = new Dictionary<string, Vector3>(){
             { "right", new Vector3 (0, 1, 0) },
             { "left", new Vector3 (0, -1, 0) },
             { "ventral", new Vector3 (1, 0, 0) },
@@ -151,8 +151,24 @@ namespace TextAdventure
             description = desc;
             Name = name;
             items = new List<Item>();
-            exits = new Dictionary<string, bool>();
-            blockreasons = new Dictionary<string, string>();
+            exits = new Dictionary<string, bool>            
+            {
+                {"left", false},
+                {"right", false},
+                {"ventral", false},
+                {"dorsal", false},
+                {"cranial", false},
+                {"caudal", false}
+            };
+            blockreasons = new Dictionary<string, string>
+            {
+                {"left", "I can't go that way."},
+                {"right", "I can't go that way."},
+                {"ventral", "I can't go that way."},
+                {"dorsal", "I can't go that way."},
+                {"cranial", "I can't go that way."},
+                {"caudal", "I can't go that way."}
+            };
             isGoalRoom = false;
             Position = position;
         }

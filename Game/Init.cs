@@ -43,6 +43,7 @@ namespace TextAdventure
                 {"Pancreas", new Vector3(-1,0,0)}
             };
             setGoalRoom(rooms: newGame.RoomList);
+            
             return stringRooms;
         }
 
@@ -52,29 +53,12 @@ namespace TextAdventure
             rooms.Values.CopyTo(roomArray, 0);
             roomArray[new Random().Next(1, roomArray.Length)].isGoalRoom = true;
         }
-
-        public static void setRoomExits(Room toSet, Dictionary<string, bool> exitsToAdd)
-        {
-            toSet.exits = exitsToAdd;
-        }
-
-        public static void setBlockReasons(Room toSet, Dictionary<string, string> reasonsToAdd)
-        {
-            toSet.blockreasons = reasonsToAdd;
-        }
-
         public static void exitAdder()
         {
-            Dictionary<string, bool> stomachExits = new Dictionary<string, bool> 
-            {
-                {"left", false},
-                {"right", false},
-                {"ventral", true},
-                {"dorsal", true},
-                {"cranial", true},
-                {"caudal", true}
-            };
-            setRoomExits(stomach, stomachExits);
+            stomach.exits["ventral"] = true;
+            stomach.exits["dorsal"] = true;
+            stomach.exits["cranial"] = true;
+            stomach.exits["caudal"] = true;
         }
 
     }
