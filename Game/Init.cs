@@ -56,7 +56,6 @@ namespace TextAdventure
         public static void exitAdder()
         {
             stomach.exits["ventral"] = true;
-            stomach.exits["dorsal"] = true;
             stomach.exits["cranial"] = true;
             stomach.exits["caudal"] = true;
         }
