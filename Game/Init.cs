@@ -58,8 +58,13 @@ namespace TextAdventure
             new List<string> { "ventral", "cranial" }.ForEach(i => stomach.exits[i] = true);
             new List<string> { "right", "cranial" }.ForEach(i => liver.exits[i] = true);
             new List<string> { "left", "dorsal", "caudal", "right", "ventral"}.ForEach(i => smallIntestine.exits[i] = true);
-            new List<string> {"ventral", "right", "caudal"}.ForEach(i => inferiorVenaCava.exits[i] = true);
-            new List<string> {"ventral", "left", "caudal"}.ForEach(i => aorta.exits[i] = true);
+            new List<string> {"dorsal", "right", "caudal"}.ForEach(i => inferiorVenaCava.exits[i] = true);
+            new List<string> {"dorsal", "left", "caudal"}.ForEach(i => aorta.exits[i] = true);
+            new List<string> {"ventral", "cranial"}.ForEach(i => heart.exits[i] = true);
+            new List<string> {"ventral", "cranial", "left", "dorsal"}.ForEach(i => leftLung.exits[i] = true);
+            new List<string> {"ventral", "cranial", "right", "dorsal"}.ForEach(i => rightLung.exits[i] = true);
+            new List<string> { "dorsal", "cranial", "right", "left" }.ForEach(i => pancreas.exits[i] = true);
+            new List<string> { "dorsal", "cranial", "left", "caudal", "ventral" }.ForEach(i => spleen.exits[i] = true);
         }
 
     }
