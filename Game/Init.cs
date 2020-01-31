@@ -55,9 +55,11 @@ namespace TextAdventure
         }
         public static void exitAdder()
         {
-            stomach.exits["ventral"] = true;
-            stomach.exits["cranial"] = true;
-            stomach.exits["caudal"] = true;
+            new List<string> { "ventral", "cranial" }.ForEach(i => stomach.exits[i] = true);
+            new List<string> { "right", "cranial" }.ForEach(i => liver.exits[i] = true);
+            new List<string> { "left", "dorsal", "caudal", "right", "ventral"}.ForEach(i => smallIntestine.exits[i] = true);
+            new List<string> {"ventral", "right", "caudal"}.ForEach(i => inferiorVenaCava.exits[i] = true);
+            new List<string> {"ventral", "left", "caudal"}.ForEach(i => aorta.exits[i] = true);
         }
 
     }
