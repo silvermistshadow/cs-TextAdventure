@@ -107,7 +107,7 @@ namespace TextAdventure
             }
             foreach (string exit in readRoom(user.curroom).exits.Keys)
             {
-                Console.WriteLine($"I see an exit to the {exit}. It leads to the {readRoom(user.curroom + directions[exit]).Name}.");
+                Console.WriteLine($"I see an exit to the {exit}.");
             }
         }
         public void Look(Item lookedat)
