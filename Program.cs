@@ -24,9 +24,13 @@ namespace TextAdventure
                 while(true)
                 {
                     string gameInput = Console.ReadLine();
+                    if(gameInput.ToLower() == "quit")
+                    {
+                        break;
+                    }
                     if (Init.newGame.directions.ContainsKey(gameInput.ToLower()))
                     {
-                        
+                        Init.newGame.dirGo(gameInput, Init.newGame.RoomList[Init.newGame.user.curroom]);
                     }
                 }
             }
