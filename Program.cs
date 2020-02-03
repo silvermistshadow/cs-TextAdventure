@@ -31,11 +31,16 @@ namespace TextAdventure
                     if (Init.newGame.directions.ContainsKey(gameInput.ToLower()))
                     {
                         Init.newGame.dirGo(gameInput, Init.newGame.RoomList[Init.newGame.user.curroom]);
+                        Init.newGame.Look();
                         if(Init.newGame.RoomList[Init.newGame.user.curroom].isGoalRoom)
                         {
                             Console.WriteLine("You found the goal. If I were writing this game for real, there'd actually be something you'd need to do here, but there isn't. You just win.");
                             break;
                         }
+                    }
+                    if(gameInput.ToLower() == "look")
+                    {
+                        Init.newGame.Look();
                     }
                 }
                 Environment.Exit(0);

@@ -11,9 +11,7 @@ _The short description pretty much got it. As for the current version, the game 
 #### Command Reference
  To go somewhere, type one of the directions. Directions are as follows; **right**, **left**, **ventral**, **dorsal**, **cranial** and **caudal**.
 
-When items are implimented, you can use **Take** and the name of the item to take it.
-
-**Look** displays the room description and exits and items in it. Alternatively, if you specify an item, it will display that instead. Again, items haven't been implimented yet.
+**Look** displays the room description and exits in it.
 
 
 
